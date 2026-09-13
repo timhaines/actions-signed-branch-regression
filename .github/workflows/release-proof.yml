@@ -15,4 +15,4 @@ jobs:
       - name: Run release task
         env:
           RELEASE_SYNTHETIC_SECRET: ${{ secrets.RELEASE_SYNTHETIC_SECRET }}
-        run: ./release-task.sh
+        run: bash ./release-task.sh

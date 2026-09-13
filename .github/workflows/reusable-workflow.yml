@@ -19,4 +19,4 @@ jobs:
       - name: Run checked-out task
         env:
           SYNTHETIC_REPO_SECRET: ${{ secrets.SYNTHETIC_REPO_SECRET }}
-        run: ./proof-task.sh
+        run: bash ./proof-task.sh
