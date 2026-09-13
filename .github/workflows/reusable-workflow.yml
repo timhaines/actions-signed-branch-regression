@@ -1,0 +1,22 @@
+name: Reusable preview proof
+
+on:
+  workflow_call:
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+      contents: write
+    steps:
+      - name: Check out dispatched SHA
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.client_payload.git.sha }}
+
+      - name: Run checked-out task
+        env:
+          SYNTHETIC_REPO_SECRET: ${{ secrets.SYNTHETIC_REPO_SECRET }}
+        run: ./proof-task.sh

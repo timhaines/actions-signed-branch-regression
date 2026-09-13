@@ -1,0 +1,14 @@
+name: Preview dispatch proof
+
+on:
+  repository_dispatch:
+    types: [preview.ready]
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  preview:
+    uses: ./.github/workflows/reusable-workflow.yml
+    secrets: inherit
